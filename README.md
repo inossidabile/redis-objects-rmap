@@ -43,7 +43,7 @@ Or even specify lambdas to prepare your cache:
 ```ruby
 class Foo < ActiveRecord::Base
   include Redis::Objects::RMap
-  has_rmap :title => lambda{|x| x.camelize}, :id => lambda{|x| x.to_s}
+  has_rmap({:title => lambda{|x| x.camelize}}, :id => lambda{|x| x.to_s})
 end
 ```
 
