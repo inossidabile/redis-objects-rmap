@@ -25,12 +25,26 @@ class Foo < ActiveRecord::Base
 end
 
 Foo.create! :title => 'foo'
-Foo.rmap # {'foo' => '1'} <- Does SQL request and puts to Redis
-Foo.rmap # {'foo' => '1'} <- Gets from Redis without SQL query
+Foo.rmap # {1 => 'foo'} <- Does SQL request and puts to Redis
+Foo.rmap # {1 => 'foo'} <- Gets from Redis without an SQL query
+```
 
-Foo.create! :title => 'bar'
-Foo.rmap # {'foo' => '1', 'bar' => '2'} <- Does SQL request and puts to Redis
-Foo.rmap # {'foo' => '1', 'bar' => '2'} <- Gets from Redis without SQL query
+You can specify field to use as an ID source:
+
+```ruby
+class Foo < ActiveRecord::Base
+  include Redis::Objects::RMap
+  has_rmap :title, :my_id
+end
+```
+
+Or even specify lambdas to prepare your cache:
+
+```ruby
+class Foo < ActiveRecord::Base
+  include Redis::Objects::RMap
+  has_rmap :title => lambda{|x| x.camelize}, :id => lambda{|x| x.to_s}
+end
 ```
 
 ## Contributing
