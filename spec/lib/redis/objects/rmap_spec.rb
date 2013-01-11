@@ -55,6 +55,16 @@ describe Redis::Objects::RMap do
 
       Foo.rmap_options[:title_proc].call(:test).should == 'test'
     end
+
+    it "undestands complex declaration" do
+      class Foo < ActiveRecord::Base
+        include Redis::Objects::RMap
+        has_rmap 'foo' => lambda{|x| x.to_s}, :id => lambda{|x| x.to_s}
+      end
+
+      Foo.rmap_options[:title_proc].call(:test).should == 'test'
+      Foo.rmap_options[:id_proc].call(:test).should == 'test'
+    end
   end
 
   describe "Cache" do

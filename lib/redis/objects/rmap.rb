@@ -22,6 +22,10 @@ class Redis
 
       module ClassMethods
         def has_rmap(title=nil, id=nil)
+          if title.is_a?(Hash) && title.length > 1
+            id = {title.keys[1] => title.values[1]}
+          end
+
           options = {
             :title => title,
             :id    => id || :id
