@@ -1,9 +1,10 @@
 # Redis::Objects::RMap
 
-Adds Redis-cached hash containing correspondence between row id and selected field to ActiveRecord models.
-
 [![Travis CI](https://secure.travis-ci.org/inossidabile/redis-objects-rmap.png)](https://travis-ci.org/inossidabile/redis-objects-rmap)
 [![Code Climate](https://codeclimate.com/github/inossidabile/redis-objects-rmap.png)](https://codeclimate.com/github/inossidabile/redis-objects-rmap)
+
+Adds Redis-cached hash containing correspondence between row id and selected field to ActiveRecord models.
+
 [![endorse](http://api.coderwall.com/inossidabile/endorsecount.png)](http://coderwall.com/inossidabile)
 
 ## Installation
@@ -58,10 +59,6 @@ class Foo < ActiveRecord::Base
 end
 ```
 
-## Contributing
+## License
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+It is free software, and may be redistributed under the terms of MIT license.
