@@ -78,14 +78,7 @@ describe Redis::Objects::RMap do
       Foo.rmap.should == {}
 
       Foo.create! :name => "test1"
-      Foo.should_receive(:rmap_cache)
-      Foo.rmap
-      Foo.rspec_reset
-
       Foo.rmap.should == {"1" => "test1"}
-      Foo.should_not_receive(:rmap_cache)
-      Foo.rmap
-      Foo.rspec_reset
 
       Foo.destroy_all
       Foo.rmap.should == {}
