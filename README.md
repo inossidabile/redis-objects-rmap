@@ -1,5 +1,6 @@
 # Redis::Objects::RMap
 
+[![Gem Version](https://badge.fury.io/rb/redis-objects-rmap.png)](http://badge.fury.io/rb/redis-objects-rmap)
 [![Travis CI](https://secure.travis-ci.org/inossidabile/redis-objects-rmap.png)](https://travis-ci.org/inossidabile/redis-objects-rmap)
 [![Code Climate](https://codeclimate.com/github/inossidabile/redis-objects-rmap.png)](https://codeclimate.com/github/inossidabile/redis-objects-rmap)
 
